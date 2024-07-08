@@ -1,8 +1,13 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+:root {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $font-default;
+  background: lighten($secondary, 76);
   color: $default;
 }
 
@@ -11,7 +16,7 @@ a {
   text-decoration: none;
 }
 
-a:hover  {
+a:hover {
   color: lighten($primary, 10);
   text-decoration: none;
 }
@@ -21,23 +26,48 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# Main
+--------------------------------------------------------------*/
+#main {
+  margin-top: 60px;
+  padding: 20px 30px;
+  transition: all 0.3s;
+  @media (max-width: 1199px) {
+    padding: 20px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Page Title
+--------------------------------------------------------------*/
+.pagetitle {
+  margin-bottom: 10px;
+  h1 {
+    font-size: 24px;
+    margin-bottom: 0;
+    font-weight: 600;
+    color: $secondary;
+  }
+} 
+
+/*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
 .back-to-top {
   position: fixed;
   visibility: hidden;
   opacity: 0;
-  right: 15px;
+  right:15px;
   bottom: 15px;
-  z-index: 996;
+  z-index: 99999;
   background: $primary;
   width: 40px;
   height: 40px;
-  border-radius: 50px;
+  border-radius: 4px;
   transition: all 0.4s;
 
   i {
-    font-size: 28px;
+    font-size: 24px;
     color: #fff;
     line-height: 0;
   }
@@ -52,46 +82,4 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
   }
 
-}
-
-/*--------------------------------------------------------------
-# Preloader
---------------------------------------------------------------*/
-#preloader {  
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 9999;
-  overflow: hidden;
-  background: #fff;
-}
-
-#preloader:before {
-  content: "";
-  position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid $primary;
-  border-top-color: $white;
-  border-bottom-color: $white;
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: animate-preloader 1s linear infinite;
-}
-
-@keyframes animate-preloader {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
-@media screen and (max-width: 768px) {
-  [data-aos-delay] {
-    transition-delay: 0 !important;
-  }
 }
