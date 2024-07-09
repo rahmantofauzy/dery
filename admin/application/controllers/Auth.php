@@ -9,16 +9,23 @@ class Auth extends CI_Controller {
 
     function index()
     {
-        $this->load->view('auth/head');
+        $this->load->view('component/head');
+        $this->load->view('auth/index');
+        $this->load->view('component/foot');
+    }
+
+    function login()
+    {
+        $this->load->view('component/head');
         $this->load->view('auth/login');
-        $this->load->view('auth/foot');
+        $this->load->view('component/foot');
     }
 
     function register()
     {
-        $this->load->view('auth/head');
+        $this->load->view('component/head');
         $this->load->view('auth/register');
-        $this->load->view('auth/foot');
+        $this->load->view('component/foot');
     }
 
 }
