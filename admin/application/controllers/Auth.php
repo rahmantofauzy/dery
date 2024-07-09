@@ -7,10 +7,18 @@ class Auth extends CI_Controller {
         parent::__construct();
     }
 
-    public function index()
+    function index()
     {
+        $this->load->view('auth/head');
         $this->load->view('auth/login');
-        $this->load->view('auth/login');
-        $this->load->view('auth/login');
+        $this->load->view('auth/foot');
     }
+
+    function register()
+    {
+        $this->load->view('auth/head');
+        $this->load->view('auth/register');
+        $this->load->view('auth/foot');
+    }
+
 }
