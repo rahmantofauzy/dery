@@ -18,8 +18,21 @@
               <div class="card-body">
 
                 <div class="pt-4 pb-2">
-                  <h5 class="card-title text-center pb-0 fs-4">Selamat Datang di Control Panel Website</h5>
-                  <!-- <p class="text-center small">Silahkan login terlebih dahulu untuk mengakses halaman ini</p> -->
+                  <h5 class="card-title text-center pb-0 fs-4">Welcome to NiceDery</h5>
+                  <p class="text-center small">Choose your option below to proceed</p>
+                </div>
+
+                <div class="row">
+                  <div class="col-6">
+                    <a href="<?= base_url("auth/login")?>">
+                      <button class="btn btn-primary w-100" type="button">Login</button>
+                    </a>
+                  </div>
+                  <div class="col-6">
+                    <a href="<?= base_url("auth/register")?>">
+                      <button class="btn btn-primary w-100" type="button">Register</button>
+                    </a>
+                  </div>
                 </div>
 
               </div>
