@@ -22,39 +22,42 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation" method="post" action="<?= base_url('auth/register');?>">
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Your Name</label>
-                      <input type="text" name="name" class="form-control" id="name" required>
-                      <div class="invalid-feedback">Please, enter your name!</div>
+                      <label for="Name" class="form-label">Your Name</label>
+                      <input type="text" name="name" class="form-control" id="name" title="Name" placeholder="" required>
+                      <!-- <?= form_error('name'); ?> -->
                     </div>
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Email</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="email" class="form-control" id="email" required>
+                        <input type="text" name="email" class="form-control" id="email" title="Email" placeholder="" required>
                         <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword1" class="form-label">Password</label>
-                      <input type="password1" name="password1" class="form-control" id="password1" required>
+                      <input type="password" name="password1" class="form-control" id="password1" title="Password1" placeholder="" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword2" class="form-label">Retype Password</label>
-                      <input type="password2" name="password2" class="form-control" id="password2" required>
+                      <input type="password" name="password2" class="form-control" id="password2" title="Password2" placeholder="" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
+                      <button class="btn btn-primary w-100" type="submit">Request Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="pages-login.html">Log in</a></p>
+                      <p class="small mb-0"><a href="" title="Because our system is private-based control system, you should request an account to be accepted or you can contact administrator for an account.">Why request?</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p class="small mb-0">Already have an account? <a href="<?= base_url("auth/login");?>">Log in</a></p>
                     </div>
                   </form>
 

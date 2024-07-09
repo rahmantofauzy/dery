@@ -18,6 +18,14 @@
               <div class="card-body">
 
                 <div class="pt-4 pb-2">
+                  <!-- Success Alert -->
+                  <?php if($this->session->flashdata('success')) { ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <?php echo $this->session->flashdata('success') ?>
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                  <?php } ?>
+                  <!-- Title -->
                   <h5 class="card-title text-center pb-0 fs-4">Welcome to NiceDery</h5>
                   <p class="text-center small">Choose your option below to proceed</p>
                 </div>
