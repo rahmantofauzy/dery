@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'https://www.dery.projectpdg.my.id/';
-//$config['base_url'] = '';
+$config['base_url'] = 'https://www.dery.projectpdg.my.id/admin/';
+//$config['base_url'] = 'http://localhost/dery/admin/';
 
 /*
 |--------------------------------------------------------------------------
