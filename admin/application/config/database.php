@@ -119,9 +119,11 @@ $query_builder = TRUE;
 // 	'save_queries' => TRUE
 // );
 
-$mode_coding = "Web"; // Mode: Localhost / Web
 
-if($mode_coding === "Localhost") {
+// MODE CODING. SILAHKAN DIUBAH KE WEB SEBELUM GIT PUSH
+$mode_coding = "W"; // Mode: L (Localhost) / W (Web)
+
+if ($mode_coding === "L") {
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',
@@ -143,7 +145,7 @@ if($mode_coding === "Localhost") {
 		'failover' => array(),
 		'save_queries' => TRUE
 	);
-} else if($mode_coding === "Web") {
+} else if ($mode_coding === "W") {
 	$db['default'] = array(
 		'dsn'	=> '',
 		'hostname' => 'localhost',

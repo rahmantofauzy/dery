@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>The Hawq - Index</title>
+  <title><?= $web_header_name; ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -59,15 +59,15 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>Dery Rajwa Hawq</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+    <div class="container" data-aos="zoom-in" data-aos-delay="200">
+      <h1><?= $web_title_name; ?></h1>
+      <p>I'm <span class="typed" data-typed-items="<?= $web_i_am_skill; ?>"></span></p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a href="#" <?php if ($twitter === "1") {echo "";} else {echo "hidden";} ?> class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" <?php if ($facebook === "1") {echo "";} else {echo "hidden";} ?> class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" <?php if ($instagram === "1") {echo "";} else {echo "hidden";} ?> class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" <?php if ($google_plus === "1") {echo "";} else {echo "hidden";} ?> class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" <?php if ($linkedin === "1") {echo "";} else {echo "hidden";} ?> class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->

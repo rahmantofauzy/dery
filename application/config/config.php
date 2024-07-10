@@ -23,7 +23,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'https://www.dery.projectpdg.my.id/';
+
+// MODE CODING. SILAHKAN DIUBAH KE WEB SEBELUM GIT PUSH
+$mode_coding = "W"; // Mode: L (Localhost) / W (Web)
+
+if ($mode_coding === "L") {
+	$config['base_url'] = 'http://localhost/dery/admin/';
+} else if ($mode_coding === "W") {
+	$config['base_url'] = 'https://www.dery.projectpdg.my.id/admin/';
+} else {
+	$config['base_url'] = '';
+}
 
 /*
 |--------------------------------------------------------------------------

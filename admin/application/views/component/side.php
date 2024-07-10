@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="<?php echo base_url(''); ?>">
+        <a class="nav-link collapsed" href="<?= base_url('dashboard'); ?>">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -13,7 +13,7 @@
       <li class="nav-heading">Settings</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a class="nav-link collapsed" href="<?= base_url('settings/profile'); ?>">
           <i class="bi bi-gear"></i>
           <span>Profile</span>
         </a>
