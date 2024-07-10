@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -63,11 +63,11 @@
       <h1><?= $web_title_name; ?></h1>
       <p>I'm <span class="typed" data-typed-items="<?= $web_i_am_skill; ?>"></span></p>
       <div class="social-links">
-        <a href="#" <?php if ($twitter === "1") {echo "";} else {echo "hidden";} ?> class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" <?php if ($facebook === "1") {echo "";} else {echo "hidden";} ?> class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" <?php if ($instagram === "1") {echo "";} else {echo "hidden";} ?> class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" <?php if ($google_plus === "1") {echo "";} else {echo "hidden";} ?> class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" <?php if ($linkedin === "1") {echo "";} else {echo "hidden";} ?> class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <a target="_blank" href="<?php echo $twitter;?>" <?php if ($twitter_checkbox === "1") {echo "";} else {echo "hidden";} ?> class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a target="_blank" href="<?php echo $facebook;?>" <?php if ($facebook_checkbox === "1") {echo "";} else {echo "hidden";} ?> class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a target="_blank" href="<?php echo $instagram;?>" <?php if ($instagram_checkbox === "1") {echo "";} else {echo "hidden";} ?> class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a target="_blank" href="<?php echo $google_plus;?>" <?php if ($google_plus_checkbox === "1") {echo "";} else {echo "hidden";} ?> class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a target="_blank" href="<?php echo $linkedin;?>" <?php if ($linkedin_checkbox === "1") {echo "";} else {echo "hidden";} ?> class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -80,7 +80,7 @@
 
         <div class="section-title">
           <h2>About</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
         </div>
 
         <div class="row">

@@ -29,4 +29,33 @@ class General_profile_settings_model extends CI_Model {
         $query = $this->db->query($sql, array($web_i_am_skill));
     }
 
+    function save_social_media($data) {
+
+        $twitter = $data['twitter'];
+        $twitter_checkbox = $data['twitter_checkbox'];
+        $sql_twitter = "UPDATE general_profile_settings SET value_int_128 = ?, value_text = ? WHERE setting_name = 'twitter';";
+        $this->db->query($sql_twitter, array($twitter_checkbox, $twitter));
+
+        $facebook = $data['facebook'];
+        $facebook_checkbox = $data['facebook_checkbox'];
+        $sql_facebook = "UPDATE general_profile_settings SET value_int_128 = ?, value_text = ? WHERE setting_name = 'facebook';";
+        $this->db->query($sql_facebook, array($facebook_checkbox, $facebook));
+
+        $instagram = $data['instagram'];
+        $instagram_checkbox = $data['instagram_checkbox'];
+        $sql_instagram = "UPDATE general_profile_settings SET value_int_128 = ?, value_text = ? WHERE setting_name = 'instagram';";
+        $this->db->query($sql_instagram, array($instagram_checkbox, $instagram));
+
+        $google_plus = $data['google_plus'];
+        $google_plus_checkbox = $data['google_plus_checkbox'];
+        $sql_google_plus = "UPDATE general_profile_settings SET value_int_128 = ?, value_text = ? WHERE setting_name = 'google_plus';";
+        $this->db->query($sql_google_plus, array($google_plus_checkbox, $google_plus));
+
+        $linkedin = $data['linkedin'];
+        $linkedin_checkbox = $data['linkedin_checkbox'];
+        $sql_linkedin = "UPDATE general_profile_settings SET value_int_128 = ?, value_text = ? WHERE setting_name = 'linkedin';";
+        $this->db->query($sql_linkedin, array($linkedin_checkbox, $linkedin));
+
+    }
+
 }
