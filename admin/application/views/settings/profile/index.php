@@ -4,7 +4,7 @@
   <h1>Profile Settings</h1>
   <nav>
     <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+      <li class="breadcrumb-item"><a href="<?= base_url('dashboard')?>">Dashboard</a></li>
       <li class="breadcrumb-item">Settings</li>
       <li class="breadcrumb-item active">Profile</li>
     </ol>
@@ -16,26 +16,35 @@
     <div class="col-lg-8">
 
       <!-- General Profile Settings (Home Page) -->
+
+      <!-- Success Alert -->
+      <?php if($this->session->flashdata('success_profile_settings')) { ?>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <i class="bi bi-check-circle me-1"></i>
+          <?php echo $this->session->flashdata('success_profile_settings') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } ?>
+
+      <!-- Error Alert -->
+      <?php if($this->session->flashdata('error_profile_settings')) { ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <?php echo $this->session->flashdata('error_profile_settings') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } ?>
+
+      <!-- Warning Alert -->
+      <?php if($this->session->flashdata('warning_profile_settings')) { ?>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <?php echo $this->session->flashdata('warning_profile_settings') ?>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <?php } ?>
+
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">General Profile Settings (Home Page)</h5>
-
-          <!-- Success Alert on General Profile Settings -->
-          <?php if($this->session->flashdata('success_general_profile_settings')) { ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <i class="bi bi-check-circle me-1"></i>
-              <?php echo $this->session->flashdata('success_general_profile_settings') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php } ?>
-
-          <!-- Error Alert on General Profile Settings -->
-          <?php if($this->session->flashdata('error_general_profile_settings')) { ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <?php echo $this->session->flashdata('error_general_profile_settings') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php } ?>
 
           <!-- Web Header's name -->
           <form action="<?php echo base_url('settings/set_web_header_name');?>" method="post">
@@ -72,7 +81,8 @@
             <div class="row mb-3">
               <label for="web_i_am_skill" class="col-3 col-form-label">Your Skills</label>
               <div class="col-8">
-                <input type="text" class="form-control" name="web_i_am_skill" id="web_i_am_skill" value="<?php echo $web_i_am_skill;?>">
+                <!-- <input type="text" class="form-control" name="web_i_am_skill" id="web_i_am_skill" value="<?php echo $web_i_am_skill;?>"> -->
+                <textarea class="form-control" style="height: 100px" name="web_i_am_skill" id="web_i_am_skill"><?php echo $web_i_am_skill;?></textarea>
               </div>
               <div class="col-1">
                 <button type="submit" class="btn btn-primary">Go</button>
@@ -154,45 +164,6 @@
         </div>
       </div>
 
-      <!-- About Profile Settings -->
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">About</h5>
-
-            <!-- Success Alert on About Profile Settings -->
-            <?php if($this->session->flashdata('success_about_profile_settings')) { ?>
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              <i class="bi bi-check-circle me-1"></i>
-              <?php echo $this->session->flashdata('success_about_profile_settings') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php } ?>
-
-          <!-- Error Alert on About Profile Settings -->
-          <?php if($this->session->flashdata('error_about_profile_settings')) { ?>
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              <?php echo $this->session->flashdata('error_about_profile_settings') ?>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          <?php } ?>
-
-          <!-- Upload .docx for CV -->
-          <form action="<?php echo base_url('settings/  ');?>" method="post" enctype="multipart/form-data">
-            <div class="row mb-3">
-              <label for="cv_file" class="col-3 col-form-label">Update CV <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle me-1"></i> Not ready</span></label>
-              <div class="col-8">
-                <input type="file" name="cv_file" id="cv_file" accept=".doc,.docx" class='form-control'>
-                <small class='text'></small>
-              </div>
-              <div class="col-1">
-                <button type="submit" class="btn btn-primary" disabled>Go</button>
-              </div>
-            </div>
-          </form>
-
-        </div>
-      </div>
-
     </div>
 
     <div class="col-lg-4">
@@ -201,6 +172,34 @@
   </div>
 </section>
 
-
-
 </main><!-- End #main -->
+
+<div class="modal fade" id="ExtralargeModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+
+    <form action="<?php echo base_url('settings/upload_cv');?>" method="post">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Update CV</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <!-- TinyMCE Editor -->
+        <textarea class="tinymce-editor" name="cv_content" id="cv_content">
+          <?php echo $cv_available;?>
+        </textarea><!-- End TinyMCE Editor -->
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save & Apply</button>
+      </div>
+
+    </form>
+    </div>
+  </div>
+</div><!-- End Extra Large Modal-->

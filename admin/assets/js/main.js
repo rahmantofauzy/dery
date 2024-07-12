@@ -276,7 +276,16 @@
     contextmenu: 'link image table',
     skin: useDarkMode ? 'oxide-dark' : 'oxide',
     content_css: useDarkMode ? 'dark' : 'default',
-    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+
+    content_css: [
+      'assets/css/tinymce_custom.css' // Tambahkan path ke file CSS Anda
+    ],
+    setup: function (editor) {
+        editor.on('init', function () {
+            editor.getDoc().body.style.fontFamily = 'Arial, sans-serif';
+        });
+    }
   });
 
   /**

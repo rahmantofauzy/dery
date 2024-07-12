@@ -1,0 +1,12 @@
+ul li {
+    position: relative;
+    padding-left: 1.5em;
+}
+
+ul li::before {
+    content: '➤';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #000;
+}

@@ -27,7 +27,7 @@
                   <?php } ?>
                   <!-- Title -->
                   <h5 class="card-title text-center pb-0 fs-4">Welcome to NiceDery</h5>
-                  <p class="text-center small">Choose your option below to proceed</p>
+                  <p class="text-center small">An open control panel for portofolio websites by <a href="https://www.projectpdg.my.id/" target="_blank">project.pdg.my.id</a></p>
                 </div>
 
                 <div class="row">

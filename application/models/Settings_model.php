@@ -14,10 +14,10 @@ class Settings_model extends CI_Model {
         return $query->result();
     }
 
-    public function get_header() {
-        $sql = "SELECT value_varchar_128 FROM general_profile_settings WHERE setting_name = 'web_title_name';";
+    function get_about_model_settings() {
+        $sql = "SELECT * FROM about_cv_settings;";
         $query = $this->db->query($sql);
-        return $query->row();  // Mengembalikan satu baris hasil query
+        return $query->result();
     }
 
 }
