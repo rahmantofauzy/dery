@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 // MODE CODING. SILAHKAN DIUBAH KE WEB SEBELUM GIT PUSH
-$mode_coding = "L"; // Mode: L (Localhost) / W (Web)
+$mode_coding = "W"; // Mode: L (Localhost) / W (Web)
 
 if ($mode_coding === "L") {
 	$config['base_url'] = 'http://localhost/dery/admin/';

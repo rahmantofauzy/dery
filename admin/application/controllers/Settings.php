@@ -10,8 +10,9 @@ class Settings extends CI_Controller
         {
                 parent::__construct();
                 $this->load->library('form_validation');
+                // $this->load->library('upload');
 
-                $this->load->model('General_profile_settings_model');
+                $this->load->model('Profile_settings_model');
                 $this->load->model('About_settings_model');
         }
 
@@ -27,8 +28,8 @@ class Settings extends CI_Controller
 
         public function profile()
         {                
-                // General Profile Settings
-                $settings_general = $this->General_profile_settings_model->get_general_profile_settings();
+                // General Profile Settings Page
+                $settings_general = $this->Profile_settings_model->get_profile_settings();
 
                 $data['web_header_name'] = $settings_general[0]->value_varchar_128;
                 $data['web_title_name'] = $settings_general[1]->value_varchar_128;
@@ -55,11 +56,6 @@ class Settings extends CI_Controller
                 $linkedin_checked = $settings_general[7]->value_int_128;
 		$data['linkedin_checkbox'] = ($linkedin_checked == 1) ? "checked" : "";
 
-                // About & CV Settings
-                $settings_about_cv = $this->About_settings_model->get_cv_model();
-
-                $data['cv_available'] = $settings_about_cv['0']->value_text;
-
                 $data['title'] = 'Settings -> Profile';
                 $this->load->view('component/head', $data);
                 $this->load->view('component/top');
@@ -81,7 +77,7 @@ class Settings extends CI_Controller
                         $web_header_name = $this->input->post('web_header_name');
 
                         // echo $web_title_name;
-                        $this->General_profile_settings_model->save_web_header_name($web_header_name);
+                        $this->Profile_settings_model->save_web_header_name($web_header_name);
 
                         $this->session->set_flashdata('success_profile_settings', 'Settings applied! New value on <u>web header name</u> is <strong>'.$web_header_name.'</strong>');
                         redirect('Settings/profile');
@@ -101,7 +97,7 @@ class Settings extends CI_Controller
                         $web_title_name = $this->input->post('web_title_name');
 
                         // echo $web_title_name;
-                        $this->General_profile_settings_model->save_web_title_name($web_title_name);
+                        $this->Profile_settings_model->save_web_title_name($web_title_name);
 
                         $this->session->set_flashdata('success_profile_settings', 'Settings applied! New value on <u>web title name</u> is <strong>'.$web_title_name.'</strong>');
                         redirect('Settings/profile');
@@ -121,7 +117,7 @@ class Settings extends CI_Controller
                         $web_i_am_skill = $this->input->post('web_i_am_skill');
 
                         // echo $web_i_am_skill;
-                        $this->General_profile_settings_model->save_web_i_am_skill($web_i_am_skill);
+                        $this->Profile_settings_model->save_web_i_am_skill($web_i_am_skill);
 
                         $this->session->set_flashdata('success_profile_settings', 'Settings applied! New value on your skills is entered');
                         redirect('Settings/profile');
@@ -136,18 +132,6 @@ class Settings extends CI_Controller
                         $this->session->set_flashdata('error_profile_settings', 'No settings applied on social media!');
                         redirect('Settings/profile');
                 } else {
-
-                        // $twitter = $this->input->post('twitter_link');
-                        // $twitter_check = $this->input->post('twitter_checkbox') ? 1 : 0;
-                        // $facebook = $this->input->post('facebook_link');
-                        // $facebook_check = $this->input->post('facebook_checkbox') ? 1 : 0;
-                        // $instagram = $this->input->post('instagram_link');
-                        // $instagram_check = $this->input->post('instagram_checkbox') ? 1 : 0;
-                        // $google_plus = $this->input->post('google_plus_link');
-                        // $google_plus_check = $this->input->post('google_plus_checkbox') ? 1 : 0;
-                        // $linkedin = $this->input->post('linkedin_link');
-                        // $linkedin_check = $this->input->post('linkedin_checkbox') ? 1 : 0;
-                        
                         
                         $data['twitter'] = $this->input->post('twitter_link');
                         $data['twitter_checkbox'] = $this->input->post('twitter_checkbox') ? 1 : 0;
@@ -164,7 +148,7 @@ class Settings extends CI_Controller
                         $data['linkedin'] = $this->input->post('linkedin_link');
                         $data['linkedin_checkbox'] = $this->input->post('linkedin_checkbox') ? 1 : 0;
 
-                        $this->General_profile_settings_model->save_social_media($data);
+                        $this->Profile_settings_model->save_social_media($data);
 
                         $this->session->set_flashdata('success_profile_settings', 'Settings applied! New social media is entered');
                         redirect('Settings/profile');
@@ -172,9 +156,28 @@ class Settings extends CI_Controller
                 }
         }
 
-        public function cv()
+        function upload_Image_Background()
         {
-                // About & CV Settings
+                $config['upload_path'] = './assets/img/edit/';
+                $config['allowed_types'] = 'jpg';
+                $config['file_name'] = 'hero-bg';
+                $config['overwrite'] = TRUE;
+
+                $this->load->library('upload', $config);
+
+                if ($this->upload->do_upload('uploadMainBackgroundImage')) {
+                        $this->session->set_flashdata('success_profile_settings', 'Image succesfully changed. Go to your main website to check it out');
+                        redirect('Settings/profile');
+                } else {
+                        $error = $this->upload->display_errors();
+                        $this->session->set_flashdata('error_profile_settings', 'Error while performing an upload: '.$error);
+                        redirect('Settings/profile');
+                }
+        }
+
+        public function about()
+        {
+                // About & CV Settings Page
                 $settings_about_cv = $this->About_settings_model->get_cv_model();
 
                 $data['cv_available'] = $settings_about_cv['0']->value_text;

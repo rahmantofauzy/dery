@@ -31,7 +31,7 @@
 
       <!-- CV Page -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="<?= base_url('settings/cv'); ?>">
+        <a class="nav-link collapsed" href="<?= base_url('settings/about'); ?>">
           <i class="bi bi-person-badge"></i>
           <span>About</span>
         </a>

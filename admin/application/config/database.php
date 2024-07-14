@@ -121,7 +121,7 @@ $query_builder = TRUE;
 
 
 // MODE CODING. SILAHKAN DIUBAH KE WEB SEBELUM GIT PUSH
-$mode_coding = "L"; // Mode: L (Localhost) / W (Web)
+$mode_coding = "W"; // Mode: L (Localhost) / W (Web)
 
 if ($mode_coding === "L") {
 	$db['default'] = array(
