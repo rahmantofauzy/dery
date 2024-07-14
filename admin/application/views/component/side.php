@@ -38,12 +38,13 @@
       </li><!-- End CV Page Nav -->
 
       <!-- PhpMyAdmin -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="http://localhost/phpmyadmin" target="_blank">
           <i class="bi bi-database"></i>
           <span>Buka Phpmyadmin</span>
         </a>
-      </li><!-- End Buka Phpmyadmin Nav -->
+      </li> -->
+      <!-- End Buka Phpmyadmin Nav -->
 
     </ul>
 
